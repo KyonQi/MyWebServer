@@ -8,5 +8,5 @@ Updating my C++ WebServer project NOW~
 - ~~ThreadPool~~
 - ~~MYSQL Connection~~
 - Log
-- HTTP Connect
+- ~~HTTP Connect~~
 - etc.
