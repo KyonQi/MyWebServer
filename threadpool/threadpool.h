@@ -44,7 +44,7 @@ threadpool<T>::threadpool(int actor_model, connection_pool *connPool, int thread
     for (int i = 0; i < thread_number; ++i) {
         if (pthread_create(m_threads + i, NULL, worker, this) != 0) {
             delete[] m_threads;
-            throw std::exception()
+            throw std::exception();
         }
     }
     //detach后线程不会等待其他线程结束join，结束后线程自己释放
