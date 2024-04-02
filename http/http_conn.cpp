@@ -324,7 +324,7 @@ http_conn::HTTP_CODE http_conn::process_read() {
     HTTP_CODE ret = NO_REQUEST;
     char *text = 0;
 
-    while ((m_check_state == CHECK_STATE_CONTENT && line_status == LINE_OK) || ((line_status = parse_line) == LINE_OK)) {
+    while ((m_check_state == CHECK_STATE_CONTENT && line_status == LINE_OK) || ((line_status = parse_line()) == LINE_OK)) {
         text = get_line();
         m_start_line = m_checked_idx;
         LOG_INFO("%s", text);
