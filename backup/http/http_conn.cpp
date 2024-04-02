@@ -357,8 +357,8 @@ http_conn::HTTP_CODE http_conn::process_read() {
         default:
             return INTERNAL_ERROR;
         }
+        return NO_REQUEST;
     }
-    return NO_REQUEST;
 }
 
 http_conn::HTTP_CODE http_conn::do_request() {
