@@ -46,12 +46,13 @@ threadpool<T>::threadpool(int actor_model, connection_pool *connPool, int thread
             delete[] m_threads;
             throw std::exception();
         }
+        //detach后线程不会等待其他线程结束join，结束后线程自己释放
+        if (pthread_detach(m_threads[i])) {
+            delete[] m_threads;
+            throw std::exception();
+        }
     }
-    //detach后线程不会等待其他线程结束join，结束后线程自己释放
-    if (pthread_detach(m_threads[i])) {
-        delete[] m_threads;
-        throw std::exception();
-    }
+
 }
 template<typename T>
 threadpool<T>::~threadpool() {
